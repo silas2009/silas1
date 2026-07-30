@@ -176,14 +176,7 @@
     confirm.textContent = 'I will be waiting.';
 
     const msg = encodeURIComponent(`They said yes and picked ${displayTime}`);
-    fetch(`https://api.telegram.org/bot8943471660:AAE06B_LIu0pyj0Sl_tt_w6ZjF_hcHHWZ6U/sendMessage?chat_id=7466119945&text=${msg}`)
-      .then(res => res.json())
-      .then(data => {
-        confirm.textContent = 'I will be waiting. [' + JSON.stringify(data) + ']';
-      })
-      .catch(err => {
-        confirm.textContent = 'I will be waiting. [ERROR: ' + err.message + ']';
-      });
+    fetch(`https://api.telegram.org/bot8943471660:AAE06B_LIu0pyj0Sl_tt_w6ZjF_hcHHWZ6U/sendMessage?chat_id=7466119945&text=${msg}`);
   }
 </script>
 
