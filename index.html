@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Let's Hang Out</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   * { box-sizing: border-box; }
   html, body {
@@ -15,25 +16,31 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 50%, #fecfef 100%);
+    background: #0F1512;
+    background-image:
+      linear-gradient(#2A3730 1px, transparent 1px),
+      linear-gradient(90deg, #2A3730 1px, transparent 1px);
+    background-size: 64px 64px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     overflow: hidden;
     position: relative;
   }
   .card {
-    background: white;
+    background: #161F1B;
+    border: 1px solid #2A3730;
     border-radius: 24px;
     padding: 50px 40px;
     text-align: center;
-    box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.5);
     max-width: 420px;
     width: 90%;
     position: relative;
     z-index: 2;
   }
   h1 {
+    font-family: 'Space Grotesk', sans-serif;
     font-size: 1.8em;
-    color: #333;
+    color: #F2EFE6;
     margin-bottom: 30px;
   }
   .buttons {
@@ -48,21 +55,24 @@
     border: none;
     border-radius: 50px;
     padding: 14px 32px;
-    font-size: 1.1em;
-    font-weight: bold;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 1em;
+    font-weight: 600;
     cursor: pointer;
     transition: transform 0.2s ease, opacity 0.3s ease, top 0.4s ease, left 0.4s ease;
   }
   #yesBtn {
-    background: linear-gradient(135deg, #4caf50, #66bb6a);
-    color: white;
+    background: #FFB238;
+    color: #12180F;
   }
   #yesBtn:hover {
     transform: scale(1.08);
+    background: #ffc35e;
   }
   #noBtn {
-    background: linear-gradient(135deg, #ef5350, #e57373);
-    color: white;
+    background: #1D2822;
+    color: #8FA096;
+    border: 1px solid #2A3730;
   }
   #noBtn.roaming {
     position: fixed;
@@ -76,39 +86,52 @@
     align-items: center;
   }
   #timePicker label {
-    color: #555;
-    font-weight: bold;
+    color: #8FA096;
+    font-family: 'IBM Plex Mono', monospace;
+    font-weight: 600;
+    font-size: 0.9em;
   }
   #timePicker input[type="time"] {
-    font-size: 1.3em;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 1.2em;
     padding: 10px 16px;
-    border: 2px solid #eee;
-    border-radius: 12px;
+    border: 1px solid #2A3730;
+    border-radius: 10px;
     outline: none;
+    background: #0F1512;
+    color: #F2EFE6;
   }
   #timePicker input[type="time"]:focus {
-    border-color: #66bb6a;
+    border-color: #FFB238;
   }
   #confirmTimeBtn {
-    background: linear-gradient(135deg, #4caf50, #66bb6a);
-    color: white;
+    background: #FFB238;
+    color: #12180F;
     width: 100%;
   }
   #confirmTimeBtn:hover {
     transform: scale(1.03);
+    background: #ffc35e;
   }
   #confirmMsg {
     display: none;
-    color: #4caf50;
-    font-weight: bold;
+    color: #FFB238;
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700;
     font-size: 1.3em;
     margin-top: 20px;
   }
+  @keyframes blink{ 0%,100%{opacity:1;} 50%{opacity:0.25;} }
 </style>
 </head>
 <body>
 
 <div class="card">
+  <div style="font-family:'IBM Plex Mono', monospace; font-size:13px; color:#FFB238; display:flex; align-items:center; justify-content:center; gap:8px; margin-bottom:20px;">
+    <span style="width:7px; height:7px; border-radius:50%; background:#FFB238; box-shadow:0 0 8px #FFB238; animation:blink 2.4s infinite;"></span>
+    silas.exes
+  </div>
+
   <!-- Replace "HER NAME HERE" below with her actual name -->
   <h1 id="mainText">Let's hang out?<br>Have Forgotten Your Name</h1>
 
@@ -124,6 +147,10 @@
   </div>
 
   <div id="confirmMsg"></div>
+
+  <footer style="font-family:'IBM Plex Mono', monospace; font-size:10px; color:#8FA096; margin-top:24px;">
+    built by Ufoegbune Silas Oliseloke
+  </footer>
 </div>
 
 <script>
