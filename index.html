@@ -109,6 +109,7 @@
 <body>
 
 <div class="card">
+  <!-- Replace "HER NAME HERE" below with her actual name -->
   <h1 id="mainText">Let's hang out?<br>Have Forgotten Your Name</h1>
 
   <div class="buttons" id="btnRow">
@@ -117,7 +118,7 @@
   </div>
 
   <div id="timePicker">
-    <label for="timeInput">What Time</label>
+    <label for="timeInput">You Can Not Run Away</label>
     <input type="time" id="timeInput">
     <button id="confirmTimeBtn" onclick="confirmTime()">Confirm</button>
   </div>
@@ -151,7 +152,7 @@
   }
 
   function sayYes() {
-    document.getElementById('mainText').textContent = 'You can not run away';
+    document.getElementById('mainText').textContent = 'I will be waiting 😈';
     document.getElementById('btnRow').style.display = 'none';
     document.getElementById('timePicker').style.display = 'flex';
   }
@@ -175,16 +176,14 @@
     confirm.textContent = 'I will be waiting.';
 
     const msg = encodeURIComponent(`They said yes and picked ${displayTime}`);
-const img = new Image();
-img.src = `https://api.telegram.org/bot8943471660:AAFvG8ZFUZZ9C_Avvz4R_HZ1UQcT0YREn4A/sendMessage?chat_id=7466119945&text=${msg}`;
-   fetch(`https://api.telegram.org/bot8943471660:AAFvG8ZFUZZ9C_Avvz4R_HZ1UQcT0YREn4A/sendMessage?chat_id=7466119945&text=${msg}`)
-  .then(res => res.json())
-  .then(data => {
-    document.getElementById('confirmMsg').textContent += ' [' + JSON.stringify(data) + ']';
-  })
-  .catch(err => {
-    document.getElementById('confirmMsg').textContent += ' [ERROR: ' + err.message + ']';
-  });
+    fetch(`https://api.telegram.org/bot8943471660:AAE06B_LIu0pyj0Sl_tt_w6ZjF_hcHHWZ6U/sendMessage?chat_id=7466119945&text=${msg}`)
+      .then(res => res.json())
+      .then(data => {
+        confirm.textContent = 'I will be waiting. [' + JSON.stringify(data) + ']';
+      })
+      .catch(err => {
+        confirm.textContent = 'I will be waiting. [ERROR: ' + err.message + ']';
+      });
   }
 </script>
 
