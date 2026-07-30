@@ -174,6 +174,14 @@
     const confirm = document.getElementById('confirmMsg');
     confirm.style.display = 'block';
     confirm.textContent = 'I will be waiting.';
+   fetch('https://api.telegram.org/bot8943471660:AAFvG8ZFUZZ9C_Avvz4R_HZ1UQcT0YREn4A/sendMessage', {
+  method: 'POST',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify({
+    chat_id: '7466119945',
+    text: `They said yes and picked ${displayTime}`
+  })
+});
   }
 </script>
 
