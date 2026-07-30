@@ -109,7 +109,7 @@
 <body>
 
 <div class="card">
-  <h1 id="mainText">Let's hang out?<br>Have forgotten your name</h1>
+  <h1 id="mainText">Let's hang out?</h1>
 
   <div class="buttons" id="btnRow">
     <button id="yesBtn" onclick="sayYes()">Yes</button>
@@ -117,7 +117,7 @@
   </div>
 
   <div id="timePicker">
-    <label for="timeInput">At What Time</label>
+    <label for="timeInput">What time works for you?</label>
     <input type="time" id="timeInput">
     <button id="confirmTimeBtn" onclick="confirmTime()">Confirm</button>
   </div>
@@ -128,13 +128,12 @@
 <script>
   let noScale = 1;
   const noBtn = document.getElementById('noBtn');
-  const minScale = 0.4; // smallest it'll ever get - stays "obvious" enough to find
+  const minScale = 0.4;
 
   function handleNo() {
     noScale = Math.max(minScale, noScale - 0.15);
     noBtn.style.transform = `scale(${noScale})`;
 
-    // Switch to roaming mode and jump to a random spot on the screen
     noBtn.classList.add('roaming');
 
     const btnWidth = noBtn.offsetWidth * noScale;
@@ -174,14 +173,15 @@
     const confirm = document.getElementById('confirmMsg');
     confirm.style.display = 'block';
     confirm.textContent = 'I will be waiting.';
-   fetch('https://api.telegram.org/bot8943471660:AAFvG8ZFUZZ9C_Avvz4R_HZ1UQcT0YREn4A/sendMessage', {
-  method: 'POST',
-  headers: { 'Content-Type': 'application/json' },
-  body: JSON.stringify({
-    chat_id: '7466119945',
-    text: `They said yes and picked ${displayTime}`
-  })
-});
+
+    fetch('https://api.telegram.org/bot8943471660:AAFvG8ZFUZZ9C_Avvz4R_HZ1UQcT0YREn4A/sendMessage', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        chat_id: '7466119945',
+        text: `They said yes and picked ${displayTime}`
+      })
+    });
   }
 </script>
 
