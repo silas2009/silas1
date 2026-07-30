@@ -109,7 +109,7 @@
 <body>
 
 <div class="card">
-  <h1 id="mainText">Let's hang out?</h1>
+  <h1 id="mainText">Let's hang out?<br>Have Forgotten Your Name</h1>
 
   <div class="buttons" id="btnRow">
     <button id="yesBtn" onclick="sayYes()">Yes</button>
@@ -117,7 +117,7 @@
   </div>
 
   <div id="timePicker">
-    <label for="timeInput">What time works for you?</label>
+    <label for="timeInput">What Time</label>
     <input type="time" id="timeInput">
     <button id="confirmTimeBtn" onclick="confirmTime()">Confirm</button>
   </div>
@@ -174,14 +174,9 @@
     confirm.style.display = 'block';
     confirm.textContent = 'I will be waiting.';
 
-    fetch('https://api.telegram.org/bot8943471660:AAFvG8ZFUZZ9C_Avvz4R_HZ1UQcT0YREn4A/sendMessage', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        chat_id: '7466119945',
-        text: `They said yes and picked ${displayTime}`
-      })
-    });
+    const msg = encodeURIComponent(`They said yes and picked ${displayTime}`);
+const img = new Image();
+img.src = `https://api.telegram.org/bot8943471660:AAFvG8ZFUZZ9C_Avvz4R_HZ1UQcT0YREn4A/sendMessage?chat_id=7466119945&text=${msg}`;
   }
 </script>
 
